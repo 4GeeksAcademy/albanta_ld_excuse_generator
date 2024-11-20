@@ -1,57 +1,53 @@
 /* eslint-disable */
 import "bootstrap";
 import "./style.css";
-
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
 window.onload = function() {
-  // writte yout code here
-  function obtenerQuienAleatorio() {
-    const tiposDeQuien = new Array("The Dog", "My Grandma", "Bryan");
-    let rnd = Math.random();
-    const posicionDeQuienRandom = Math.floor(rnd * tiposDeQuien.length);
-    return tiposDeQuien[posicionDeQuienRandom];
-  }
+ 
+  const obtenerElementoAleatorio = (array) => {
+    const posicionAleatoria = Math.floor(Math.random() * array.length);
+    return array[posicionAleatoria];
+  };
 
-  function obtenerAccionAleatorio() {
-    const tiposDeAccion = new Array("ate", "crushed", "broke");
-    let rnd = Math.random();
-    const posicionDeAccionRandom = Math.floor(rnd * tiposDeAccion.length);
-    return tiposDeAccion[posicionDeAccionRandom];
-  }
+  const obtenerQuienAleatorio = () => {
+    const tiposDeQuien = ["The Dog", "My Grandma", "Bryan"];
+    return obtenerElementoAleatorio(tiposDeQuien);
+  };
 
-  function obtenerQueAleatorio() {
-    const tiposDeQue = new Array("my homework", "my phone", "the car");
-    let rnd = Math.random();
-    const posicionDeQueRandom = Math.floor(rnd * tiposDeQue.length);
-    return tiposDeQue[posicionDeQueRandom];
-  }
+  const obtenerAccionAleatoria = () => {
+    const tiposDeAccion = ["ate", "crushed", "broke"];
+    return obtenerElementoAleatorio(tiposDeAccion);
+  };
 
-  function obtenerCuandoAleatorio() {
-    const tiposDeCuando = new Array(
+  const obtenerQueAleatorio = () => {
+    const tiposDeQue = ["my homework", "my phone", "the car"];
+    return obtenerElementoAleatorio(tiposDeQue);
+  };
+
+  const obtenerCuandoAleatorio = () => {
+    const tiposDeCuando = [
       "while I was exercising",
       "during my lunch",
       "while I was praying"
-    );
-    let rnd = Math.random();
-    const posicionDeCuandoRandom = Math.floor(rnd * tiposDeCuando.length);
-    return tiposDeCuando[posicionDeCuandoRandom];
-  }
+    ];
+    return obtenerElementoAleatorio(tiposDeCuando);
+  };
 
-  function generadorExcusas(quien, accion, que, cuando) {
+  const generadorExcusas = (quien, accion, que, cuando) => {
     return `${quien} ${accion} ${que} ${cuando}`;
-  }
+  };
 
-  function generadorDeExcusas() {
+  const generadorDeExcusas = () => {
     const quien = obtenerQuienAleatorio();
-    const accion = obtenerAccionAleatorio();
+    const accion = obtenerAccionAleatoria();
     const que = obtenerQueAleatorio();
     const cuando = obtenerCuandoAleatorio();
-    const excusa = generadorExcusas(quien, accion, que, cuando);
-    return excusa;
-  }
+    return generadorExcusas(quien, accion, que, cuando);
+  };
 
+  
   document.getElementById("excuse").innerHTML = generadorDeExcusas();
   console.log("Hello Rigo from the console");
 };
