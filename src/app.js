@@ -5,7 +5,7 @@ import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
 window.onload = function() {
- 
+  
   const obtenerElementoAleatorio = (array) => {
     const posicionAleatoria = Math.floor(Math.random() * array.length);
     return array[posicionAleatoria];
